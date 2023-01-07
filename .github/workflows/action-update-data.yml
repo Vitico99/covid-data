@@ -12,6 +12,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@main
 
+      - name: Change branch
+        run: git checkout new
+
       - name: Setup the environment
         uses: actions/setup-python@v4
         with:
@@ -20,7 +23,7 @@ jobs:
 
       - name: Install dependencies
         run: pip install -r requirements.txt
-        
+
       - name: Modify files
         run: python test.py
       
