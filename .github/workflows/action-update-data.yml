@@ -9,32 +9,32 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+      - name: Checkout repository
+        uses: actions/checkout@main
+
       - name: Setup the environment
         uses: actions/setup-python@v4
         with:
           python-version: '3.9'
           cache: 'pip'
 
-      - name: Checkout repository
-        uses: actions/checkout@main
-      
       - name: Install dependencies
         run: pip install -r requirements.txt
         
       - name: Modify files
         run: python test.py
       
-      - name: Commit files
-        run: |
-          git config --local user.name ${{ github.actor }}
-          git add confirmed.us.csv
-          git commit -m "updating the confirmed cases"
+      # - name: Commit files
+      #   run: |
+      #     git config --local user.name ${{ github.actor }}
+      #     git add confirmed.us.csv
+      #     git commit -m "updating the confirmed cases"
       
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          force: true
+      # - name: Push changes
+      #   uses: ad-m/github-push-action@master
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     force: true
 
       
 
