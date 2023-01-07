@@ -1,11 +1,11 @@
 name: Data
 on: 
-  schedule:
-    - cron: '30 13 * * *'
+  push:
+    branches:
+      - main
 
 jobs:
   fetch_data:
-    name: Fetch data
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -14,7 +14,7 @@ jobs:
           python-version: '3.9'
           cache: 'pip'
       - run: pip install -r requirements.txt
-      - run: python time_series_states.py
+      - run: test.py
       
       
 
