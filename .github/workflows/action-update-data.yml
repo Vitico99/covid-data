@@ -27,7 +27,7 @@ jobs:
       - name: Commit files
         run: |
           git config --local user.name ${{ github.actor }}
-          git add confirmed.us.csv
+          git add confirmed_us.csv
           git commit -m "updating the confirmed cases"
       
       # - name: Push changes
