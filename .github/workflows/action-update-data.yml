@@ -20,15 +20,13 @@ jobs:
       
       - name: Install dependencies
         run: pip install -r requirements.txt
-
-      - name: Change the branch
-        run: git checkout new
         
       - name: Modify files
         run: python test.py
       
       - name: Commit files
         run: |
+          git checkout new
           git config --local user.name ${{ github.actor }}
           git add confirmed.us.csv
           git commit -m "updating the confirmed cases"
