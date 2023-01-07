@@ -17,8 +17,11 @@ jobs:
           python-version: '3.9'
           cache: 'pip'
       
-      - name: Modify the data
-        run: pip install -r requirements.txt & python test.py
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+        
+      - name: Modify files
+        run: python test.py
       
       
 
