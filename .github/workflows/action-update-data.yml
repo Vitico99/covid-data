@@ -16,10 +16,13 @@ jobs:
           cache: 'pip'
 
       - name: Checkout repository
-        uses: actions/checkout@new
+        uses: actions/checkout@v3
       
       - name: Install dependencies
         run: pip install -r requirements.txt
+
+      - name: Change the branch
+        run: git checkout new
         
       - name: Modify files
         run: python test.py
@@ -31,7 +34,7 @@ jobs:
           git commit -m "updating the confirmed cases"
       
       - name: Push changes
-        uses: ad-m/github-push-action@new
+        uses: ad-m/github-push-action@main
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           force: true
