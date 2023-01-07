@@ -24,11 +24,11 @@ jobs:
       - name: Modify files
         run: python test.py
       
-      # - name: Commit files
-      #   run: |
-      #     git config --local user.name ${{ github.actor }}
-      #     git add confirmed.us.csv
-      #     git commit -m "updating the confirmed cases"
+      - name: Commit files
+        run: |
+          git config --local user.name ${{ github.actor }}
+          git add confirmed.us.csv
+          git commit -m "updating the confirmed cases"
       
       # - name: Push changes
       #   uses: ad-m/github-push-action@master
