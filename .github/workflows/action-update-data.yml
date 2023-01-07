@@ -11,11 +11,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Update the covid data
+      - name: Setup the environment
         uses: actions/setup-python@v4
         with:
           python-version: '3.9'
           cache: 'pip'
+      
+      - name: Modify the data
         run: pip install -r requirements.txt & python test.py
       
       
