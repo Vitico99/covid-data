@@ -8,3 +8,7 @@ df['new column'] = a
 
 with open('confirmed_us.csv', 'w') as f:
     df.to_csv(f, index=False)
+
+with open('new_file.txt', 'w') as f:
+    f.write('hello world')
+    
